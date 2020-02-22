@@ -1,25 +1,27 @@
 <head>
-  <title>hand</title>
+  <title>CACBO Handball</title>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  <nav>
+    <div class="nav-wrapper">
+      <ul id="nav-mobile" class="brand-logo center">
+        <li><a href="">Accueil</a></li>
+        <li><a href=".html">Le Club</a></li>
+        <li><a href=".html">Les Équipes</a></li>
+        <li><a href=".html">L'Actualité</a></li>
+        <li><a href=".html">Les Partenaires</a></li>
+      </ul>
+    </div>
+  </nav>
 
-  {{> hello}}
-  {{> info}}
+  <!--JavaScript at end of body for optimized loading-->
+  <script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
-
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>
-
-<template name="info">
-  <h2>Learn Meteor!</h2>
-  <ul>
-    <li><a href="https://www.meteor.com/try" target="_blank">Do the Tutorial</a></li>
-    <li><a href="http://guide.meteor.com" target="_blank">Follow the Guide</a></li>
-    <li><a href="https://docs.meteor.com" target="_blank">Read the Docs</a></li>
-    <li><a href="https://forums.meteor.com" target="_blank">Discussions</a></li>
-  </ul>
-</template>

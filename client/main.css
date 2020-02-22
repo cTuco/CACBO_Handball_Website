@@ -2,3 +2,7 @@ body {
   padding: 10px;
   font-family: sans-serif;
 }
+
+.nav-wrapper {
+  background-color: rgb(209, 39, 9);
+}
