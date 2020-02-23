@@ -1,8 +1,15 @@
 body {
   padding: 10px;
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 .nav-wrapper {
   background-color: rgb(209, 39, 9);
+}
+.page-footer{
+  background-color: rgb(109, 101, 100);
+  margin-top: 300px;
 }

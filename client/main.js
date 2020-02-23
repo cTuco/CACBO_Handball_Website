@@ -3,15 +3,13 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
 
-Template.hello.onCreated(function helloOnCreated() {
-  // counter starts at 0
-  this.counter = new ReactiveVar(0);
-});
+Template.modal.events({
+  'click .leClub': function () {
+    event.preventDefault();
 
-Template.hello.helpers({
-  counter() {
-    return Template.instance().counter.get();
-  },
+    //Get input value
+    const target = event.target;
+  }
 });
 
 Template.hello.events({
