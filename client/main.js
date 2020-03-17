@@ -1,9 +1,10 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 
-import './main.html';
+import './layout.html';
 import './templates/navbar.html';
 import './templates/footer.html';
+
 
 
 // Template.modal.events({
@@ -21,10 +22,3 @@ import './templates/footer.html';
 //     instance.counter.set(instance.counter.get() + 1);
 //   },
 // });
-
-Template.navbar.events({
-    'click .leClub': function () {
-        console.log("le Club !")
-
-    }
-})

@@ -26,3 +26,11 @@ img{
   text-decoration: underline;
   color: white;
 }
+
+.btn{
+  background-color: rgb(109, 101, 100);
+  align-items: right;
+}
+.btn:hover{
+  background-color: lightgray;
+}

@@ -1,0 +1,23 @@
+<template name='MainLayout'>
+  <header>
+    <h1>Le site</h1>
+    {{>loginButtons}}
+  </header>
+  <main>
+    {{>Template.dynamic template=main}}
+  </main>
+</template>
+
+
+<!-- <body>
+   BARRE DE NAVIGATION 
+  <header>
+    {{>navbar}}
+  </header>
+
+   FOOTER
+  {{>footer}}
+
+  JavaScript at end of body for optimized loading
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+</body> -->
