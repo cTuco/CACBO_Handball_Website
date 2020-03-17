@@ -1,11 +1,16 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 
-import './layout.html';
 import './templates/navbar.html';
 import './templates/footer.html';
+import './templates/mainLayout.html';
+import './templates/homeLayout.html';
+import './templates/leClub.html';
+import './templates/lesEquipes.html';
+import './templates/actualite.html';
+import './templates/partenaires.html';
 
-
+import '../lib/router.js';
 
 // Template.modal.events({
 //   'click .leClub': function () {
