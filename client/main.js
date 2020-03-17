@@ -1,5 +1,6 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
+import { Accounts } from 'meteor/accounts-base';
 
 import './templates/navbar.html';
 import './templates/footer.html';
@@ -12,8 +13,13 @@ import './templates/partenaires.html';
 
 import '../lib/router.js';
 
+//connexion avec le Username
+Accounts.ui.config({
+    passwordSignupFields: "USERNAME_ONLY"
+})
+
 // Template.modal.events({
-//   'click .leClub': function () {
+//   'click .resultat': function () {
 //     event.preventDefault();
 
 //     //Get input value
