@@ -17,10 +17,13 @@ body {
 h1{
   text-align: center;
 }
-
-img{
-  width:45px;
+h5{
+  text-align: center;
 }
+
+/* img{
+  width:45px;
+} */
 
 .lien{
   text-decoration: underline;

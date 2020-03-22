@@ -10,6 +10,8 @@ import './templates/leClub.html';
 import './templates/lesEquipes.html';
 import './templates/actualite.html';
 import './templates/partenaires.html';
+import './templates/administration.html';
+import './templates/calendrier&resultats.html';
 
 import '../lib/router.js';
 
