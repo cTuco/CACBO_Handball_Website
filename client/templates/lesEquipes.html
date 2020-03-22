@@ -1,3 +1,16 @@
 <template name='LesEquipes'>
     <h1>Les Équipes</h1>
+
+    <body>
+        <div class="container">
+            <ul>
+                {{#each equipes}}
+                {{> UneEquipe}}
+                {{/each}}
+            </ul>
+        </div>
+    </body>
+</template>
+<template name="UneEquipe">
+    <li>{{text}}</li>
 </template>

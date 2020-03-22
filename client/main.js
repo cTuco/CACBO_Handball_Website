@@ -2,6 +2,7 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Accounts } from 'meteor/accounts-base';
 
+//FICHIERS HTML
 import './templates/navbar.html';
 import './templates/footer.html';
 import './templates/mainLayout.html';
@@ -13,12 +14,14 @@ import './templates/partenaires.html';
 import './templates/administration.html';
 import './templates/calendrier&resultats.html';
 
+//FICHIERS JS
 import '../lib/router.js';
-
+import './equipe.js';
 //connexion avec le Username
 Accounts.ui.config({
     passwordSignupFields: "USERNAME_ONLY"
 })
+
 
 // Template.modal.events({
 //   'click .resultat': function () {
