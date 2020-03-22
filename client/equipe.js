@@ -1,13 +1,11 @@
-
-
 Template.LesEquipes.helpers({
     //EN DUR :
     equipes: [
-        { text: 'Note 1' },
-        { text: 'Note 2' },
-        { text: 'Note 3' },
+        { text: '-18G' },
+        { text: '-18F' },
+        { text: '-15G' },
+        { text: '-15F' },
     ]
-
     //DYNAMIQUE :
     // notes() {
     //   return Notes.find({});

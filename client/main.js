@@ -17,6 +17,7 @@ import './templates/calendrier&resultats.html';
 //FICHIERS JS
 import '../lib/router.js';
 import './equipe.js';
+
 //connexion avec le Username
 Accounts.ui.config({
     passwordSignupFields: "USERNAME_ONLY"

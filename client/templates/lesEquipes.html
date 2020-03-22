@@ -3,14 +3,18 @@
 
     <body>
         <div class="container">
-            <ul>
-                {{#each equipes}}
-                {{> UneEquipe}}
-                {{/each}}
-            </ul>
+            {{#each equipes}}
+            {{> Equipes}}
+            {{/each}}
         </div>
     </body>
 </template>
+
+<template name="Equipes">
+    <a href="">{{text}}</a>
+
+</template>
+
 <template name="UneEquipe">
-    <li>{{text}}</li>
+    <h5>Une Équipe</h5>
 </template>
