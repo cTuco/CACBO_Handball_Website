@@ -1,39 +1,37 @@
+import { Mongo } from 'meteor/mongo';
+
+export const Equipes = new Mongo.Collection('equipes');
+
 Template.LesEquipes.helpers({
     //EN DUR :
-    equipes: [
-        { text: '-18G' },
-        { text: '-18F' },
-        { text: '-15G' },
-        { text: '-15F' },
-    ]
+    // equipes: [
+    //     { niveau: '-18G' },
+    //     { niveau: '-18F' },
+    //     { niveau: '-15G' },
+    //     { niveau: '-15F' },
+    // ]
+
     //DYNAMIQUE :
-    // notes() {
-    //   return Notes.find({});
-    // }
+    equipes() {
+        return Equipes.find({});
+    }
 });
-// Template.modal.events({
-//     'submit .modal-form': function () {
-//         event.preventDefault();
 
-//         //Get input value
-//         const target = event.target;
-//         //target.NAME.value
-//         const text = target.email.value;
+Template.LesEquipes.events({
+    'submit .add-form': function () {
+        event.preventDefault();
 
-//         // Notes.insert({
-//         //   text,
-//         //   ceratedAt: new Date(),
-//         //   owner: Meteor.userId(),
-//         //   username: Meteor.user().username,
-//         // });
+        //get input value
+        const target = event.target;
+        const text = target.text.value;
 
-//         Meteor.call('notes.insert', text);
+        //insert niveau into collection
+        Equipes.insert({
+            text,
+            createdAt: new Date()
+        })
 
-
-//         //Clear form
-//         target.email.value = '';
-
-//         //Close modal
-//         $("#testModal").modal('toggle');
-//     }
-// });
+        //clear form
+        target.text.value = "";
+    }
+})

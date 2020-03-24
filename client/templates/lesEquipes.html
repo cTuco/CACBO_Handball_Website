@@ -3,16 +3,21 @@
 
     <body>
         <div class="container">
-            {{#each equipes}}
-            {{> Equipes}}
-            {{/each}}
+            <ul>
+                {{#each equipes}}
+                {{> Equipes}}
+                {{/each}}
+            </ul>
+
+            <form class="add-form">
+                <input type="text" name="text" placeholder="rentrer un niveau">
+            </form>
         </div>
     </body>
 </template>
 
 <template name="Equipes">
-    <a href="">{{text}}</a>
-
+    <li>{{niveau}}</li>
 </template>
 
 <template name="UneEquipe">
