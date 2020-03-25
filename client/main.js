@@ -15,7 +15,8 @@ import './templates/calendrier&resultats.html';
 
 //FICHIERS JS
 import '../lib/router.js';
-import './equipe.js';
+import './js/equipe.js';
+import './js/administration.js';
 
 //connexion avec le Username
 Accounts.ui.config({
