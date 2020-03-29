@@ -1,19 +1,18 @@
 <template name="navbar">
-    <nav class="nav-extended">
-        <div class="nav-wrapper">
-            <ul id="nav-mobile" class="brand-logo center">
-                <li><img src="">
-                    <!-- logo club -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><img src="">
                 </li>
-                <li><a href="">Accueil</a></li>
-                <li><a href="club">Le Club</a></li>
-                <li><a href="equipes">Les Équipes</a></li>
-                <li><a href="actualite">L'Actualité</a></li>
-                <li><a href="partenaires">Les Partenaires</a></li>
+                <li class="nav-item"><a href="">Accueil</a></li>
+                <li class="nav-item"><a href="club">Le Club</a></li>
+                <li class="nav-item"><a href="equipes">Les Équipes</a></li>
+                <li class="nav-item"><a href="actualite">L'Actualité</a></li>
+                <li class="nav-item"><a href="partenaires">Les Partenaires</a></li>
                 {{#if currentUser}}
-                <li><a href="administration">Administration</a></li>
+                <li class="nav-item"><a href="administration">Administration</a></li>
                 {{/if}}
-                <li>{{> loginButtons}}</li>
+                <li class="nav-item">{{> loginButtons}}</li>
             </ul>
         </div>
     </nav>

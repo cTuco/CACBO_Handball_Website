@@ -22,3 +22,7 @@ import './js/administration.js';
 Accounts.ui.config({
     passwordSignupFields: "USERNAME_ONLY"
 })
+
+//DATATABLE
+var dt = require('datatables.net')();
+var $ = require('jquery');

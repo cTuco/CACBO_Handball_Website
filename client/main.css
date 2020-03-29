@@ -6,12 +6,17 @@ body {
   flex-direction: column;
 }
 
-.nav-wrapper {
+.navbar-light {
   background-color: rgb(209, 39, 9);
 }
 .page-footer{
   background-color: rgb(109, 101, 100);
   margin-top: 300px;
+}
+
+.modal{
+  min-width: 800px;
+  min-height: 700px;
 }
 
 h1{

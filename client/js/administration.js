@@ -2,7 +2,7 @@ Template.administration.events({
     'click .btn': function () {
         const idElement = event.target.id;
         FlowRouter.go('administrationParams', { 'params': idElement })
-    }
+    },
 })
 
 Template.calendrierResultats.helpers({
@@ -19,3 +19,15 @@ Template.calendrierResultats.helpers({
         return titre;
     },
 })
+
+Template.calendrierResultats.events({
+    'click .btn': function () {
+        $('.modal').toggle();
+    },
+})
+
+$(document).ready(function () {
+    var $ = require('jquery');
+    var dt = require('datatables.net')();
+    $('#table_id').DataTable();
+});
