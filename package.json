@@ -9,8 +9,6 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.7.6",
-    "datatables.net": "^1.10.20",
-    "datatables.net-dt": "^1.10.20",
     "jquery": "^3.4.1",
     "materialize-css": "^1.0.0-rc.2",
     "meteor-node-stubs": "^1.0.0",

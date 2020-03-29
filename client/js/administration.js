@@ -25,9 +25,3 @@ Template.calendrierResultats.events({
         $('.modal').toggle();
     },
 })
-
-$(document).ready(function () {
-    var $ = require('jquery');
-    var dt = require('datatables.net')();
-    $('#table_id').DataTable();
-});
