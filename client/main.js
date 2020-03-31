@@ -14,15 +14,11 @@ import './templates/administration.html';
 import './templates/calendrier&resultats.html';
 
 //FICHIERS JS
-import '../lib/router.js';
 import './js/equipe.js';
 import './js/administration.js';
+import '../lib/router.js';
 
 //connexion avec le Username
 Accounts.ui.config({
     passwordSignupFields: "USERNAME_ONLY"
 })
-
-//DATATABLE
-var dt = require('datatables.net')();
-var $ = require('jquery');

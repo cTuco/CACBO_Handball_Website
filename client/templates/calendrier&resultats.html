@@ -1,52 +1,53 @@
 <template name="calendrierResultats">
     <div class="container">
+        {{>modalMatch}}
         <div class="row">
             <h1>Administration</h1>
-            {{>modal}}
             <h5>{{params}}</h5>
         </div>
         <div class="row">
             <table id="table_id" class="highlight centered">
-                <thead>
-                    <tr>
-                        <th>Semaine</th>
-                        <th>Équipe</th>
-                        <th>Score/Date</th>
-                        <th>Équipe</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Du 30/03/2020 au 5/03/2020</td>
-                        <td>CB</td>
-                        <td>17h30</td>
-                        <td>Talence</td>
-                    </tr>
-                    <tr>
-                        <td>Du 23/03/2020 au 29/03/2020</td>
-                        <td>CB</td>
-                        <td>20/33</td>
-                        <td>Talence</td>
-                    </tr>
-                    <tr>
-                        <td>Du 16/03/2020 au 22/03/2020</td>
-                        <td>Pessac</td>
-                        <td>40/42</td>
-                        <td>CB</td>
-                    </tr>
-                </tbody>
+                {{#each donnees}}
+                {{>tableau}}
+                {{/each}}
             </table>
         </div>
         <div class="row">
-            <a class="waves-effect waves-light btn modal-trigger" href="#modalResultat">Ajouter un résultat</a>
-            <a class="waves-effect waves-light btn modal-trigger" href="#modalMatch">Ajouter un match</a>
+            <a class="waves-effect waves-light modal-trigger btn" id="btnMatch" href="#modalMatch">
+                Ajouter un match
+            </a>
         </div>
     </div>
 </template>
 
-<template name='modal'>
+<template name="tableau">
+    <table id="table_id" class="highlight centered">
+        <thead>
+            <tr>
+                <th>Semaine</th>
+                <th>Équipe</th>
+                <th>Score/Date</th>
+                <th>Équipe</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{semaine}}</td>
+                <td>{{equipeD}}</td>
+                <td>{{score}}</td>
+                <td>{{equipeE}}</td>
+                <td><a class="waves-effect waves-light modal-trigger btn">Modifier</a></td>
+                <td><a class="waves-effect waves-light modal-trigger btn">Supprimer</a></td>
+            </tr>
+        </tbody>
+    </table>
+</template>
+
+<template name='modalMatch'>
     <!-- Modal Structure -->
-    <div id="modal" class="modal">
+    <div id="modalMatch" class="modal">
         <div class="modal-content">
             <div class="row">Semaine du </div>
             <h4>Résultats</h4>
@@ -54,38 +55,29 @@
                 <div class="col s6">
                     Équipe à domicile :
                     <div class="input-field inline">
-                        <input id="equipeDomicileResultat" type="text" class="validate" placeholder="ex : Carbon-Blanc">
+                        <input id="equipeDomicileMatch" type="text" class="validate" placeholder="ex : Carbon-Blanc">
                     </div>
                 </div>
-                <div class="col s6">
-                    Score :
-                    <div class="input-field inline">
-                        <input id="equipeDomicileScore" type="number" class="validate" placeholder="ex : 30">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
                 <div class="col s6">
                     Équipe extérieure :
                     <div class="input-field inline">
-                        <input id="equipeExterieureResultat" type="text" class="validate" placeholder="ex : Ambarès">
+                        <input id="equipeExterieureMatch" type="text" class="validate" placeholder="ex : 30">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    Date :
+                    <div class="input-field inline">
+                        <input id="dateMatch" type="date" class="validate" placeholder="ex : Ambarès">
                     </div>
                 </div>
                 <div class="col s6">
-                    Score :
+                    Heure :
                     <div class="input-field inline">
-                        <input id="equipeExterieureScore" type="number" class="validate" placeholder="ex : 30">
+                        <input id="heureMatch" type="datetime" class="validate" placeholder="ex : 30">
                     </div>
                 </div>
-            </div>
-            <h4>Matchs</h4>
-            <div class="row">
-                <div class="col">Domicile </div>
-                <div class="col">Résultats </div>
-            </div>
-            <div class="row">
-                <div class="col">Extérieur </div>
-                <div class="col">Résultats </div>
             </div>
         </div>
         <div class="modal-footer">
