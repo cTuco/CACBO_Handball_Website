@@ -30,10 +30,16 @@ Template.calendrierResultats.helpers({
 
 Template.calendrierResultats.events({
     'click #btnMatch': function () {
-        $('#modalMatch').toggle();
+        $('#modalMatch').addClass("visible");
+        $('#modalMatch').toggle("visible");
     },
-    'click #btnResultats': function () {
-        $('#modalResultats').toggle();
+    'click #saveData': function () {
+        $('#modalMatch').removeClass("visible");
+        $('#modalMatch').toggle("visible");
     },
+    'click #annuler': function () {
+        $('#modalMatch').removeClass("visible");
+        $('#modalMatch').toggle("visible");
+    }
 })
 
