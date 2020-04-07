@@ -4,17 +4,18 @@
             <h1>Administration</h1>
             <h5>{{params}}</h5>
 
-            {{>modalMatch}}
+            <!-- {{>modalMatch}} -->
         </div>
         <div class="row">
             <table id="table_id" class="highlight centered">
-                {{#each donnees}}
-                {{>tableau}}
+                {{#each matchs}}
+                {{categorie}}
                 {{/each}}
             </table>
         </div>
+        {{>nouveauMatch}}
         <div class="row">
-            <a class="modal-trigger btn" id="btnMatch" href="#modalMatch">
+            <a class="modal-trigger btn" id="btnMatch" href="#{{idEquipe}}">
                 Ajouter un match
             </a>
         </div>
@@ -35,22 +36,86 @@
         </thead>
         <tbody>
             <tr>
-                <td>{{semaine}}</td>
-                <td>{{equipeD}}</td>
-                <td>{{score}}</td>
-                <td>{{equipeE}}</td>
-                <td><a class="modal-trigger btn">Modifier</a></td>
-                <td><a class="modal-trigger btn">Supprimer</a></td>
+                <td>{{equipeDomicile}}</td>
+                <td>{{horaire}}</td>
+                <td>{{equipeExterieure}}</td>
+                <td><a class="modal-trigger btn" id={{idMatch}}>Modifier</a></td>
+                <td><a class="modal-trigger btn" id={{idMatch}}>Supprimer</a></td>
             </tr>
         </tbody>
     </table>
 </template>
 
-<template name='modalMatch'>
-    <!-- Modal Structure -->
+<template name="nouveauMatch">
+    <h4>Nouveau Match</h4>
+    <div class="nouveau-match-container">
+        {{> quickForm collection="Equipes" id="insertMatchForm" type="insert" class="nouveauMatch"}}
+    </div>
+</template>
+
+<!-- <template name='modalMatch'>
     <div id="modalMatch" class="modal">
         <div class="modal-content">
             <h4>Nouveau Match</h4>
+            <div class="nouveau-match-container">
+                {{>quickForm collection="Matchs" id="insertMatchForm" type="insert" class="nouveauMatch"}}
+            </div>
+
+             <div class="row">
+                <div class="col s6">
+                    Semaine du :
+                    <div class="input-field inline">
+                        <input id="dateDeb" type="date" class="validate">
+                    </div>
+                </div>
+                <div class="col s6">
+                    au
+                    <div class="input-field inline">
+                        <input id="dateFin" type="date" class="validate">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    Équipe à domicile :
+                    <div class="input-field inline">
+                        <input id="equipeDomicileMatch" type="text" class="validate" placeholder="ex : Carbon-Blanc">
+                    </div>
+                </div>
+                <div class="col s6">
+                    Équipe extérieure :
+                    <div class="input-field inline">
+                        <input id="equipeExterieureMatch" type="text" class="validate" placeholder="ex : Ambarès">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    Date :
+                    <div class="input-field inline">
+                        <input id="dateMatch" type="date" class="validate">
+                    </div>
+                </div>
+                <div class="col s6">
+                    Heure :
+                    <div class="input-field inline">
+                        <input id="heureMatch" type="time" class="validate">
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div class="modal-footer">
+            <a href="" class="modal-close waves-effect waves-green btn-flat" id="annuler">Annuler</a>
+            <a href="" class="modal-close waves-effect waves-green btn-flat" id="saveMatch">Enregistrer</a>
+        </div> 
+    </div>
+</template> -->
+
+<template name='modalModifier'>
+    <!-- Modal Structure -->
+    <div id="modalModifier" class="modal">
+        <div class="modal-content">
+            <h4>Modifier Match</h4>
             <div class="row">
                 <div class="col s6">
                     Semaine du :

@@ -1,4 +1,6 @@
-import { Resultats, Matchs } from '../../lib/collections.js';
+import { Meteor } from 'meteor/meteor';
+
+Meteor.subscribe('equipes');
 
 Template.administration.events({
     'click .btn': function () {
@@ -20,26 +22,48 @@ Template.calendrierResultats.helpers({
         }
         return titre;
     },
+    idEquipe() {
+        const param = FlowRouter.getParam('params');
+        return param;
+    },
     //EN DUR :
-    donnees: [
-        { semaine: '24 au 29', equipeD: 'CB', score: '33-20', equipeE: 'Talence' },
-        { semaine: '19 au 24', equipeD: 'Izon', score: '15-16', equipeE: 'CB' },
-        { semaine: '12 au 19', equipeD: 'CB', score: '30/02 à 17h30', equipeE: 'Pessac' },
-    ]
-})
+    // matchs: [
+    //     { semaine: '24 au 29', equipeDomicile: 'CB', scoreDomicile: '33', equipeExterieure: 'Talence', idMatch: '1' },
+    //     { semaine: '19 au 24', equipeDomicile: 'Izon', scoreDomicile: '15-16', equipeExterieure: 'CB', idMatch: '2' },
+    // ]
+    matchs() {
+        console.log(Equipes)
+        return Equipes.find({})
+    },
+});
 
 Template.calendrierResultats.events({
     'click #btnMatch': function () {
         $('#modalMatch').addClass("visible");
         $('#modalMatch').toggle("visible");
     },
-    'click #saveData': function () {
-        $('#modalMatch').removeClass("visible");
-        $('#modalMatch').toggle("visible");
-    },
-    'click #annuler': function () {
-        $('#modalMatch').removeClass("visible");
-        $('#modalMatch').toggle("visible");
-    }
+    // 'click #annuler': function () {
+    //     $('#modalMatch').removeClass("visible");
+    //     $('#modalMatch').toggle("visible");
+    // },
+    // 'click #modalModifier': function () {
+    //     $('#modalModifier').addClass("visible");
+    //     $('#modalModifier').toggle("visible");
+    // }
+
+    //nouveau match
+    // 'click #saveMatch': function () {
+    //     //on récupère toutes les données
+    //     const equipeDomicile = $('.modal-content').find('#equipeDomicileMatch').val();
+    //     console.log(equipeDomicile)
+    //     //TODO : Faire les autres input
+
+
+    //     Meteor.call('matchs.insert', equipeDomicile);
+
+    //     //On efface les données de la modal
+    //     $('#modalMatch').removeClass("visible");
+    //     $('#modalMatch').toggle("visible");
+    // }
 })
 

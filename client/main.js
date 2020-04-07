@@ -20,5 +20,5 @@ import '../lib/router.js';
 
 //connexion avec le Username
 Accounts.ui.config({
-    passwordSignupFields: "USERNAME_ONLY"
+    passwordSignupFields: "USERNAME_ONLY",
 })
