@@ -2,9 +2,21 @@
     <h1>L'Actualité</h1>
     <h2>Calendrier & Résultats</h2>
     <h5>Cette semaine</h5>
-    <table class="highlight centered">
+    <div class="row">
+        <table id="table_id" class="highlight centered">
+            {{#each matchs}}
+            {{>tableauMatchResultatActualite}}
+            {{/each}}
+        </table>
+    </div>
+    <h2>Les Événements</h2>
+</template>
+
+<template name="tableauMatchResultatActualite">
+    <table id="table_id" class="highlight centered">
         <thead>
             <tr>
+                <th>Catégorie</th>
                 <th>Équipe</th>
                 <th>Score/Date</th>
                 <th>Équipe</th>
@@ -12,16 +24,11 @@
         </thead>
         <tbody>
             <tr>
-                <td>CB</td>
-                <td>20/33</td>
-                <td>Talence</td>
-            </tr>
-            <tr>
-                <td>Pessac</td>
-                <td>40/42</td>
-                <td>CB</td>
+                <td>{{categorie}}</td>
+                <td>{{matchs.equipeDomicile}}</td>
+                <td>{{matchs.horaire}}</td>
+                <td>{{matchs.equipeExterieure}}</td>
             </tr>
         </tbody>
     </table>
-    <h2>Les Événements</h2>
 </template>

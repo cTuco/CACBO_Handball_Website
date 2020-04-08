@@ -16,6 +16,7 @@ import './templates/calendrier&resultats.html';
 //FICHIERS JS
 import './js/equipe.js';
 import './js/administration.js';
+import './js/actualite.js';
 import '../lib/router.js';
 
 //connexion avec le Username
