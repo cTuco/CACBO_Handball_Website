@@ -26,26 +26,28 @@ Template.calendrierResultats.helpers({
         const param = FlowRouter.getParam('params');
         return param;
     },
-    //EN DUR :
-    // matchs: [
-    //     { semaine: '24 au 29', equipeDomicile: 'CB', scoreDomicile: '33', equipeExterieure: 'Talence', idMatch: '1' },
-    //     { semaine: '19 au 24', equipeDomicile: 'Izon', scoreDomicile: '15-16', equipeExterieure: 'CB', idMatch: '2' },
-    // ]
+
+    //afficher tous les matchs de l'équipe
     matchs() {
-        console.log(Equipes)
-        return Equipes.find({})
+        const param = FlowRouter.getParam('params');
+        return Equipes.find({ categorie: param })//TODO : à changer !!
     },
 });
 
 Template.calendrierResultats.events({
     'click #btnMatch': function () {
+        console.log("ca passe")
         $('#modalMatch').addClass("visible");
         $('#modalMatch').toggle("visible");
     },
-    // 'click #annuler': function () {
-    //     $('#modalMatch').removeClass("visible");
-    //     $('#modalMatch').toggle("visible");
-    // },
+    'click #annuler': function () {
+        $('#modalMatch').removeClass("visible");
+        $('#modalMatch').toggle("visible");
+    },
+    'submit #btnMatch': function () {
+        $('#modalMatch').removeClass("visible");
+        $('#modalMatch').toggle("visible");
+    },
     // 'click #modalModifier': function () {
     //     $('#modalModifier').addClass("visible");
     //     $('#modalModifier').toggle("visible");
