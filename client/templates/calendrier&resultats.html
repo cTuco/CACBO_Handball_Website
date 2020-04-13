@@ -3,6 +3,7 @@
         <div class="row">
             <h1>Administration</h1>
             {{>modalMatch}}
+            {{>modalModifier}}
             <h5>{{params}}</h5>
 
         </div>
@@ -36,14 +37,12 @@
         </thead>
         <tbody>
             <tr>
-
-                <td>DATES</td>
+                <td>{{dateDebutSemaine}}</td>
                 <td>{{equipeDomicile}}</td>
                 <td>{{horaire}}</td>
                 <td>{{equipeExterieure}}</td>
-                <td><a class="modal-trigger btn" id={{idMatch}}>Modifier</a></td>
-                <td><a class="modal-trigger btn" id={{idMatch}}>Supprimer</a></td>
-
+                <td><a class="modal-trigger btn" id={{id}}Modifier>Modifier</a></td>
+                <td><a class="modal-trigger btn" id={{id}}Supprimer>Supprimer</a></td>
             </tr>
         </tbody>
         {{/each}}
@@ -53,7 +52,7 @@
 <template name='modalMatch'>
     <div id="modalMatch" class="modal">
         <div class="modal-content">
-            <h4>Nouveau Match</h4>
+            <h4>Nouveau match</h4>
             <div class="nouveau-match-container">
                 {{>quickForm collection="Equipes" id="insertMatchForm" type="insert" class="nouveauMatch"}}
                 <div class="modal-footer">
@@ -65,6 +64,19 @@
 </template>
 
 <template name='modalModifier'>
+    <div id="modalModifierMatch" class="modal">
+        <div class="modal-content">
+            <h4>Modifier le match</h4>
+            <div class="nouveau-match-container">
+                {{>quickForm collection="Equipes" id="updatetMatchForm" type="update" doc=tableauMatchResultatAdmin}}
+                <div class="modal-footer">
+                    <a href="" class="modal-close waves-effect waves-green btn-flat" id="annuler">Annuler</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+<template name='modalModifierNON'>
     <!-- Modal Structure -->
     <div id="modalModifier" class="modal">
         <div class="modal-content">

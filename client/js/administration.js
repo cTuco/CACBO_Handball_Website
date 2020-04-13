@@ -39,7 +39,6 @@ Template.calendrierResultats.helpers({
 
 Template.calendrierResultats.events({
     'click #btnMatch': function () {
-        console.log("ca passe")
         $('#modalMatch').addClass("visible");
         $('#modalMatch').toggle("visible");
     },
@@ -50,6 +49,12 @@ Template.calendrierResultats.events({
     'submit #btnMatch': function () {
         $('#modalMatch').removeClass("visible");
         $('#modalMatch').toggle("visible");
+    },
+    'click #1Modifier': function () {
+        console.log('ok')
+        $('#modalModifierMatch').addClass("visible");
+        $('#modalModifierMatch').toggle("visible");
+
     },
     // 'click #modalModifier': function () {
     //     $('#modalModifier').addClass("visible");
