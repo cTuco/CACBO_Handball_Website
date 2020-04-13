@@ -1,5 +1,4 @@
 import { Meteor } from 'meteor/meteor';
-
 Meteor.subscribe('equipes');
 
 Template.administration.events({
@@ -13,14 +12,18 @@ Template.calendrierResultats.helpers({
     params() {
         //TODO : Récupérer dans la bdd les infos relatives aux équipes
         const param = FlowRouter.getParam('params');
-        var titre = '';
-        if (param === 'SG') {
-            titre = 'Séniors Garçons';
-        }
-        if (param === 'SF') {
-            titre = 'Séniors Filles';
-        }
-        return titre;
+        // var titre = '';
+        // if (param === 'SG') {
+        //     titre = 'Séniors Garçons';
+        // }
+        // if (param === 'SF') {
+        //     titre = 'Séniors Filles';
+        // } 
+        // else {
+        //     titre = param;
+        // }
+        // return titre;
+        return param;
     },
     idEquipe() {
         const param = FlowRouter.getParam('params');
@@ -28,7 +31,7 @@ Template.calendrierResultats.helpers({
     },
 
     //afficher tous les matchs de l'équipe
-    matchs() {
+    matchsEquipe() {
         const param = FlowRouter.getParam('params');
         return Equipes.find({ categorie: param })//TODO : à changer !!
     },

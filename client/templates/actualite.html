@@ -3,17 +3,19 @@
     <h2>Calendrier & Résultats</h2>
     <h5>Cette semaine</h5>
     <div class="row">
-        <table id="table_id" class="highlight centered">
-            {{#each matchs}}
-            {{>tableauMatchResultatActualite}}
-            {{/each}}
-        </table>
+        <!-- <table id="table_id" class="highlight centered"> -->
+        {{#each matchs}}
+        {{categorie}}
+        {{>tableauMatchResultatActualite}}
+        {{/each}}
+        <!-- </table> -->
     </div>
     <h2>Les Événements</h2>
 </template>
 
 <template name="tableauMatchResultatActualite">
     <table id="table_id" class="highlight centered">
+        {{#each matchs}}
         <thead>
             <tr>
                 <th>Catégorie</th>
@@ -24,11 +26,13 @@
         </thead>
         <tbody>
             <tr>
-                <td>{{categorie}}</td>
-                <td>{{matchs.equipeDomicile}}</td>
-                <td>{{matchs.horaire}}</td>
-                <td>{{matchs.equipeExterieure}}</td>
+                <td>{{equipes.categorie}}</td>
+                <td>{{equipeDomicile}}</td>
+                <td>{{horaire}}</td>
+                <td>{{equipeExterieure}}</td>
+
             </tr>
         </tbody>
+        {{/each}}
     </table>
 </template>

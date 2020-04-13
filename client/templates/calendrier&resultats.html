@@ -8,7 +8,7 @@
         </div>
         <div class="row">
             <table id="table_id" class="highlight centered">
-                {{#each matchs}}
+                {{#each matchsEquipe}}
                 {{>tableauMatchResultatAdmin}}
                 {{/each}}
             </table>
@@ -23,6 +23,7 @@
 
 <template name="tableauMatchResultatAdmin">
     <table id="table_id" class="highlight centered">
+        {{#each matchs}}
         <thead>
             <tr>
                 <th>Semaine</th>
@@ -35,14 +36,17 @@
         </thead>
         <tbody>
             <tr>
+
                 <td>DATES</td>
-                <td>{{matchs.equipeDomicile}}</td>
-                <td>{{matchs.horaire}}</td>
-                <td>{{matchs.equipeExterieure}}</td>
+                <td>{{equipeDomicile}}</td>
+                <td>{{horaire}}</td>
+                <td>{{equipeExterieure}}</td>
                 <td><a class="modal-trigger btn" id={{idMatch}}>Modifier</a></td>
                 <td><a class="modal-trigger btn" id={{idMatch}}>Supprimer</a></td>
+
             </tr>
         </tbody>
+        {{/each}}
     </table>
 </template>
 
