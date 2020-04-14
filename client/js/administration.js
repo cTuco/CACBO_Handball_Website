@@ -1,5 +1,4 @@
 import { Meteor } from 'meteor/meteor';
-Meteor.subscribe('equipes');
 
 Template.administration.events({
     'click .btn': function () {
@@ -8,6 +7,13 @@ Template.administration.events({
     },
 })
 
+// Meteor.subscribe('equipes'); REMPLACÉ PAR :
+Template.calendrierResultats.onCreated(function () {
+    var self = this;
+    self.autorun(function () {
+        self.subscribe('equipes');
+    })
+})
 Template.calendrierResultats.helpers({
     params() {
         //TODO : Récupérer dans la bdd les infos relatives aux équipes
@@ -38,15 +44,15 @@ Template.calendrierResultats.helpers({
 });
 
 Template.calendrierResultats.events({
-    'click #btnMatch': function () {
+    'click #-18GbtnMatch': function () {
         $('#modalMatch').addClass("visible");
         $('#modalMatch').toggle("visible");
     },
-    'click #annuler': function () {
+    'submit #-18GbtnMatch': function () {
         $('#modalMatch').removeClass("visible");
         $('#modalMatch').toggle("visible");
     },
-    'submit #btnMatch': function () {
+    'click #annuler': function () {
         $('#modalMatch').removeClass("visible");
         $('#modalMatch').toggle("visible");
     },
@@ -76,4 +82,3 @@ Template.calendrierResultats.events({
     //     $('#modalMatch').toggle("visible");
     // }
 })
-

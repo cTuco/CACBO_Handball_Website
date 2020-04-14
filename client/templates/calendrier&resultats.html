@@ -9,13 +9,30 @@
         </div>
         <div class="row">
             <table id="table_id" class="highlight centered">
+                {{#if Template.subscriptionsReady}}
                 {{#each matchsEquipe}}
                 {{>tableauMatchResultatAdmin}}
                 {{/each}}
+                {{else}}
+                <!-- spinner -->
+                <div class="preloader-wrapper big active">
+                    <div class="spinner-layer spinner-red">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="gap-patch">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+                {{/if}}
             </table>
         </div>
         <div class="row">
-            <a class="modal-trigger btn" id="btnMatch" href="">
+            <a class="modal-trigger btn" id="{{params}}btnMatch" href="">
                 Ajouter un match
             </a>
         </div>
@@ -46,6 +63,7 @@
             </tr>
         </tbody>
         {{/each}}
+        <a href="/equipe/{{_id}}">View Details</a>
     </table>
 </template>
 

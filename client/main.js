@@ -1,9 +1,7 @@
 import { Template } from 'meteor/templating';
-import { Accounts } from 'meteor/accounts-base';
+import '../lib/accountsConfig.js';
 
 //FICHIERS HTML
-import './templates/navbar.html';
-import './templates/footer.html';
 import './templates/mainLayout.html';
 import './templates/homeLayout.html';
 import './templates/leClub.html';
@@ -18,8 +16,3 @@ import './js/equipe.js';
 import './js/administration.js';
 import './js/actualite.js';
 import '../lib/router.js';
-
-//connexion avec le Username
-Accounts.ui.config({
-    passwordSignupFields: "USERNAME_ONLY",
-})
