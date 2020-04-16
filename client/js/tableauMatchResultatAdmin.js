@@ -17,6 +17,7 @@ Template.tableauMatchResultatAdmin.onRendered(function () {
 });
 
 Template.tableauMatchResultatAdmin.events({
+    //au clic sur les checkbox
     'click .filled-in': function () {
         const param = FlowRouter.getParam('params');
         const Equipe = Equipes.findOne({ categorie: param });
@@ -30,5 +31,19 @@ Template.tableauMatchResultatAdmin.events({
             Equipe.matchs[idMatch].passe = false;
         }
         Meteor.call('toggleMatchPasse', Equipe._id, Equipe.matchs);
+    },
+
+    //au clic sur bouton modifier
+    'click .modal-trigger': function () {
+        const param = FlowRouter.getParam('params');
+        const Equipe = Equipes.findOne({ categorie: param });
+        let idMatch = Equipe.matchs[this.id].id;
+
+        $('#modalModifierMatch').addClass("visible idMatch" + JSON.stringify(idMatch));
+        $('#modalModifierMatch').toggle("visible idMatch" + JSON.stringify(idMatch));
+    },
+    'click #annulerModifier': function () {
+        $('#modalModifierMatch').toggle("visible");
+        $('#modalModifierMatch').removeClass("visible");
     },
 });

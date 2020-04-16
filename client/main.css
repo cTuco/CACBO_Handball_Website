@@ -17,6 +17,7 @@ body {
 .modal{
   min-width: 800px;
   min-height: 400px;
+  position: absolute;
 }
 
 h1{

@@ -54,15 +54,3 @@ Template.calendrierResultats.events({
 
     },
 });
-
-// Template.calendrierResultats.helpers({
-//     updatetMatchFormId: function () {
-//         const param = FlowRouter.getParam('params');
-//         const Equipe = Equipes.find({ categorie: param });
-//         let id;
-//         Equipe.forEach((element) => {
-//             id = element._id;
-//         });
-//         return id;
-//     },
-// });

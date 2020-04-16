@@ -3,7 +3,6 @@
         <div class="row">
             <h1>Administration</h1>
             {{>modalMatch}}
-            {{>modalModifier}}
             <h5>{{params}}</h5>
 
         </div>
@@ -37,11 +36,11 @@
             </table>
         </div>
     </div>
-    <!-- {{>quickForm collection="Equipes" id=updatetMatchFormId type="update" doc=this}} -->
 </template>
 
 <template name="tableauMatchResultatAdmin">
     <table id="table_id" class="highlight centered">
+        {{>modalModifierMatch}}
         {{#each matchs}}
         <thead>
             <tr>
@@ -68,7 +67,7 @@
                         <span></span>
                     </label>
                 </td>
-                <td><a class="modal-trigger btn">Modifier</a></td>
+                <td><a class="modal-trigger btn" id="btnModifierMatch{{id}}">Modifier</a></td>
                 <td><a class="modal-trigger btn">Supprimer</a></td>
             </tr>
         </tbody>
@@ -90,14 +89,14 @@
     </div>
 </template>
 
-<template name='modalModifier'>
+<template name='modalModifierMatch'>
     <div id="modalModifierMatch" class="modal">
         <div class="modal-content">
             <h4>Modifier le match</h4>
-            <div class="nouveau-match-container">
-                {{>quickForm collection="Equipes" id="updatetMatch" type="update" doc=tableauMatchResultatAdmin}}
+            <div class="modifier-match-container">
+                {{>quickForm collection="Equipes" id="updatetMatchId" type="update" doc=this}}
                 <div class="modal-footer">
-                    <a href="" class="modal-close waves-effect waves-green btn-flat" id="annuler">Annuler</a>
+                    <a href="" class="modal-close waves-effect waves-green btn-flat" id="annulerModifier">Annuler</a>
                 </div>
             </div>
         </div>
