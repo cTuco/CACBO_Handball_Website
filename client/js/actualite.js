@@ -5,7 +5,7 @@ Template.actualite.onCreated(function () {
     var self = this;
     self.autorun(function () {
         self.subscribe('equipes');
-    })
+    });
 })
 
 Template.tableauMatchResultatActualiteAVenir.helpers({

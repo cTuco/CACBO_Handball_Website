@@ -3,8 +3,25 @@ Template.calendrierResultats.onCreated(function () {
     var self = this;
     self.autorun(function () {
         self.subscribe('equipes');
-    })
-})
+    });
+
+
+
+    const param = FlowRouter.getParam('params');
+    const Equipe = Equipes.findOne({ categorie: param });
+
+    Equipe.matchs.forEach(match => {
+        if (match.passe === true) {
+            $('#matchPasse' + JSON.stringify(match.id)).attr('checked', true)
+        } else {
+            $('#matchPasse' + JSON.stringify(match.id)).attr('checked', false)
+        }
+    });
+
+
+
+});
+
 Template.calendrierResultats.helpers({
     params() {
         //TODO : Récupérer dans la bdd les infos relatives aux équipes
@@ -52,32 +69,10 @@ Template.calendrierResultats.events({
         $('#modalModifierMatch').toggle("visible");
 
     },
-    // 'click #modalModifier': function () {
-    //     $('#modalModifier').addClass("visible");
-    //     $('#modalModifier').toggle("visible");
-    // }
-
-    //nouveau match
-    // 'click #saveMatch': function () {
-    //     //on récupère toutes les données
-    //     const equipeDomicile = $('.modal-content').find('#equipeDomicileMatch').val();
-    //     console.log(equipeDomicile)
-    //     //TODO : Faire les autres input
-
-
-    //     Meteor.call('matchs.insert', equipeDomicile);
-
-    //     //On efface les données de la modal
-    //     $('#modalMatch').removeClass("visible");
-    //     $('#modalMatch').toggle("visible");
-    // }
 });
 
 Template.calendrierResultats.helpers({
     updatetMatchFormId: function () {
-        // const param = FlowRouter.getParam('params');
-        // return Equipes.find({ categorie: param })
-
         const param = FlowRouter.getParam('params');
         const Equipe = Equipes.find({ categorie: param });
         let id;

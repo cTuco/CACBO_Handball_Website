@@ -1,5 +1,17 @@
 import { Meteor } from 'meteor/meteor';
 
+Template.tableauMatchResultatAdmin.onRendered(function () {
+    const param = FlowRouter.getParam('params');
+    const Equipe = Equipes.findOne({ categorie: param });
+    Equipe.matchs.forEach(match => {
+        if (match.passe === true) {
+            $('#matchPasse' + JSON.stringify(match.id)).attr('checked', true)
+        } else {
+            $('#matchPasse' + JSON.stringify(match.id)).attr('checked', false)
+        }
+    });
+});
+
 Template.tableauMatchResultatAdmin.events({
     'click .filled-in': function () {
         const param = FlowRouter.getParam('params');
@@ -7,13 +19,13 @@ Template.tableauMatchResultatAdmin.events({
         let idMatch = Equipe.matchs[this.id].id;
 
         if ($('#matchPasse' + JSON.stringify(idMatch)).is(':checked')) {
-            $('#matchPasse').attr('checked', true);
+            $('#matchPasse' + JSON.stringify(idMatch)).attr('checked', true);
             Equipe.matchs[idMatch].passe = true;
         } else {
-            $('#matchPasse').attr('checked', false);
+            $('#matchPasse' + JSON.stringify(idMatch)).attr('checked', false);
             Equipe.matchs[idMatch].passe = false;
         }
 
         Meteor.call('toggleMatchPasse', Equipe._id, Equipe.matchs);
-    }
+    },
 });
