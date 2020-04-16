@@ -4,10 +4,26 @@
     <h5>Cette semaine</h5>
     <div class="row">
         <!-- <table id="table_id" class="highlight centered"> -->
+        {{#if Template.subscriptionsReady}}
         {{#each matchs}}
-        {{categorie}}
         {{>tableauMatchResultatActualite}}
         {{/each}}
+        {{else}}
+        <!-- spinner -->
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-red">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+        {{/if}}
         <!-- </table> -->
     </div>
     <h2>Les Événements</h2>
@@ -15,6 +31,7 @@
 
 <template name="tableauMatchResultatActualite">
     <table id="table_id" class="highlight centered">
+        {{categorie}}
         {{#each matchs}}
         <thead>
             <tr>
@@ -26,7 +43,7 @@
         </thead>
         <tbody>
             <tr>
-                <td>{{equipes.categorie}}</td>
+                <td>{{categorie}}</td>
                 <td>{{equipeDomicile}}</td>
                 <td>{{horaire}}</td>
                 <td>{{equipeExterieure}}</td>

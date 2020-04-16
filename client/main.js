@@ -15,4 +15,8 @@ import './templates/calendrier&resultats.html';
 import './js/equipe.js';
 import './js/administration.js';
 import './js/actualite.js';
+import './js/tableauMatchResultatAdmin.js';
+import './js/calendrier&resultats.js';
+
+//routes
 import '../lib/router.js';
