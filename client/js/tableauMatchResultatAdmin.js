@@ -21,14 +21,21 @@ Template.tableauMatchResultatAdmin.events({
     'click .filled-in': function () {
         const param = FlowRouter.getParam('params');
         const Equipe = Equipes.findOne({ categorie: param });
-        let idMatch = Equipe.matchs[this.id].id;
+        let idMatch = this.id;
+        let index;
+
+        Equipe.matchs.forEach(element => {
+            if (element.id == this.id) {
+                index = Equipe.matchs.indexOf(element);
+            }
+        });
 
         if ($('#matchPasse' + JSON.stringify(idMatch)).is(':checked')) {
             $('#matchPasse' + JSON.stringify(idMatch)).attr('checked', true);
-            Equipe.matchs[idMatch].passe = true;
+            Equipe.matchs[index].passe = true;
         } else {
             $('#matchPasse' + JSON.stringify(idMatch)).attr('checked', false);
-            Equipe.matchs[idMatch].passe = false;
+            Equipe.matchs[index].passe = false;
         }
         Meteor.call('toggleMatchPasse', Equipe._id, Equipe.matchs);
     },
@@ -58,8 +65,6 @@ Template.tableauMatchResultatAdmin.events({
                 Equipe.matchs.splice(index, 1);
             }
         });
-
         Meteor.call('toggleMatchPasse', Equipe._id, Equipe.matchs);
-        // Meteor.call('deleteMatch', this.id);
     },
 });
