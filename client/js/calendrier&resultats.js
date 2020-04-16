@@ -4,22 +4,6 @@ Template.calendrierResultats.onCreated(function () {
     self.autorun(function () {
         self.subscribe('equipes');
     });
-
-
-
-    const param = FlowRouter.getParam('params');
-    const Equipe = Equipes.findOne({ categorie: param });
-
-    Equipe.matchs.forEach(match => {
-        if (match.passe === true) {
-            $('#matchPasse' + JSON.stringify(match.id)).attr('checked', true)
-        } else {
-            $('#matchPasse' + JSON.stringify(match.id)).attr('checked', false)
-        }
-    });
-
-
-
 });
 
 Template.calendrierResultats.helpers({
@@ -71,14 +55,14 @@ Template.calendrierResultats.events({
     },
 });
 
-Template.calendrierResultats.helpers({
-    updatetMatchFormId: function () {
-        const param = FlowRouter.getParam('params');
-        const Equipe = Equipes.find({ categorie: param });
-        let id;
-        Equipe.forEach((element) => {
-            id = element._id;
-        });
-        return id;
-    },
-});
+// Template.calendrierResultats.helpers({
+//     updatetMatchFormId: function () {
+//         const param = FlowRouter.getParam('params');
+//         const Equipe = Equipes.find({ categorie: param });
+//         let id;
+//         Equipe.forEach((element) => {
+//             id = element._id;
+//         });
+//         return id;
+//     },
+// });

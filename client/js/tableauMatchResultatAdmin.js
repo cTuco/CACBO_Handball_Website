@@ -2,14 +2,18 @@ import { Meteor } from 'meteor/meteor';
 
 Template.tableauMatchResultatAdmin.onRendered(function () {
     const param = FlowRouter.getParam('params');
-    const Equipe = Equipes.findOne({ categorie: param });
-    Equipe.matchs.forEach(match => {
-        if (match.passe === true) {
-            $('#matchPasse' + JSON.stringify(match.id)).attr('checked', true)
-        } else {
-            $('#matchPasse' + JSON.stringify(match.id)).attr('checked', false)
+    if (param) {
+        const Equipe = Equipes.findOne({ categorie: param });
+        if (Equipe.matchs) {
+            Equipe.matchs.forEach(match => {
+                if (match.passe === true) {
+                    $('#matchPasse' + JSON.stringify(match.id)).attr('checked', true)
+                } else {
+                    $('#matchPasse' + JSON.stringify(match.id)).attr('checked', false)
+                }
+            });
         }
-    });
+    }
 });
 
 Template.tableauMatchResultatAdmin.events({
@@ -25,7 +29,6 @@ Template.tableauMatchResultatAdmin.events({
             $('#matchPasse' + JSON.stringify(idMatch)).attr('checked', false);
             Equipe.matchs[idMatch].passe = false;
         }
-
         Meteor.call('toggleMatchPasse', Equipe._id, Equipe.matchs);
     },
 });
