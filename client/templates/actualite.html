@@ -1,11 +1,11 @@
 <template name='actualite'>
     <h1>L'Actualité</h1>
     <h2>Calendrier & Résultats</h2>
-    <h5>Matchs à venir</h5>
     <div class="row">
-        <!-- <table id="table_id" class="highlight centered"> -->
         {{#if Template.subscriptionsReady}}
-        {{>tableauMatchResultatActualiteAVenir}}
+        {{#each categories}}
+        {{>tableauMatchResultatActualite}}
+        {{/each}}
         {{else}}
         <!-- spinner -->
         <div class="preloader-wrapper big active">
@@ -22,14 +22,14 @@
             </div>
         </div>
         {{/if}}
-        <!-- </table> -->
     </div>
+    <!-- <hr />
     <h5>Matchs passés</h5>
     <div class="row">
         {{#if Template.subscriptionsReady}}
         {{>tableauMatchResultatActualitePasse}}
         {{else}}
-        <!-- spinner -->
+       
         <div class="preloader-wrapper big active">
             <div class="spinner-layer spinner-red">
                 <div class="circle-clipper left">
@@ -44,42 +44,19 @@
             </div>
         </div>
         {{/if}}
-        <!-- </table> -->
-    </div>
+        </table> 
+    </div> -->
     <h2>Les Événements</h2>
 </template>
 
-<template name="tableauMatchResultatActualiteAVenir">
+<template name="tableauMatchResultatActualite">
+    <h6>{{categorie}}</h6>
     <table id="table_id" class="highlight centered">
-        {{#each matchsAVenir}}
+        {{#each matchs}}
+        {{#if passe}}
         <thead>
             <tr>
                 <th>Date et horaire</th>
-                <th>Catégorie</th>
-                <th>Équipe à domicile </th>
-                <th>Équipe extérieure</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>{{date}} - {{horaire}}</td>
-                <td>CATEGORIE</td>
-                <td>{{equipeDomicile}}</td>
-                <td>{{equipeExterieure}}</td>
-            </tr>
-        </tbody>
-        {{/each}}
-    </table>
-</template>
-
-<template name="tableauMatchResultatActualitePasse">
-    <table id="table_id" class="highlight centered">
-        {{categorie}}
-        {{#each matchsPasse}}
-        <thead>
-            <tr>
-                <th>Date et horaire</th>
-                <th>Catégorie</th>
                 <th>Équipe à domicile </th>
                 <th>Score</th>
                 <th>Équipe extérieure</th>
@@ -88,7 +65,47 @@
         <tbody>
             <tr>
                 <td>{{date}} - {{horaire}}</td>
-                <td>CATEGORIE</td>
+                <td>{{equipeDomicile}}</td>
+                <td>{{pointsDomicile}} - {{pointsExterieur}}</td>
+                <td>{{equipeExterieure}}</td>
+            </tr>
+        </tbody>
+        {{else}}
+        <thead>
+            <tr>
+                <th>Date et horaire</th>
+                <th>Équipe à domicile </th>
+                <th>Score</th>
+                <th>Équipe extérieure</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{date}} - {{horaire}}</td>
+                <td>{{equipeDomicile}}</td>
+                <td> - </td>
+                <td>{{equipeExterieure}}</td>
+            </tr>
+        </tbody>
+        {{/if}}
+        {{/each}}
+    </table>
+</template>
+
+<!-- <template name="tableauMatchResultatActualitePasse">
+    <table id="table_id" class="highlight centered">
+        {{#each matchsPasse}}
+        <thead>
+            <tr>
+                <th>Date et horaire</th>
+                <th>Équipe à domicile </th>
+                <th>Score</th>
+                <th>Équipe extérieure</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{date}} - {{horaire}}</td>
                 <td>{{equipeDomicile}}</td>
                 <td>{{pointsDomicile}} - {{pointsExterieur}}</td>
                 <td>{{equipeExterieure}}</td>
@@ -96,4 +113,4 @@
         </tbody>
         {{/each}}
     </table>
-</template>
+</template> -->

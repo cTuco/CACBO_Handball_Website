@@ -7,9 +7,7 @@
 
         </div>
         <div class="row">
-            <a class="modal-trigger btn" id="btnMatch" href="">
-                Ajouter un match
-            </a>
+            <a class="modal-trigger-ajout btn" id="btnMatch">Ajouter un match</a>
         </div>
         <div class="row">
             <table id="table_id" class="highlight centered">
@@ -80,7 +78,8 @@
         <div class="modal-content">
             <h4>Nouveau match</h4>
             <div class="nouveau-match-container">
-                {{>quickForm collection="Equipes" id="insertMatchForm" type="insert" class="nouveauMatch"}}
+                {{>quickForm collection="Equipes" id="insertMatchForm" type="insert" class="nouveauMatch" }}
+                <!-- {{>quickForm collection="Equipes" scope="matchs" id="insertMatchForm" type="update-pushArray" doc=this class="nouveauMatch" }} -->
                 <div class="modal-footer">
                     <a href="" class="modal-close waves-effect waves-green btn-flat" id="annuler">Annuler</a>
                 </div>
@@ -102,17 +101,3 @@
         </div>
     </div>
 </template>
-
-<!-- <template name='modalSupprimerMatch'>
-    <div id="modalModifierMatch" class="modal">
-        <div class="modal-content">
-            <h4>Modifier le match</h4>
-            <div class="modifier-match-container">
-                {{>quickForm collection="Equipes" id="updatetMatchId" type="delete" doc=this}}
-                <div class="modal-footer">
-                    <a href="" class="modal-close waves-effect waves-green btn-flat" id="annulerModifier">Annuler</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</template> -->

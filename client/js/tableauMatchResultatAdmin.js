@@ -54,7 +54,7 @@ Template.tableauMatchResultatAdmin.events({
         $('#modalModifierMatch').removeClass("visible");
     },
 
-    //au cluc sur bouton supprimer
+    //au clic sur bouton supprimer
     'click .modal-trigger-delete': function () {
         const param = FlowRouter.getParam('params');
         const Equipe = Equipes.findOne({ categorie: param });

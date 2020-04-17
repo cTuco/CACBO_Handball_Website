@@ -1,3 +1,5 @@
+import { Meteor } from 'meteor/meteor';
+
 // Meteor.subscribe('equipes'); REMPLACÉ PAR :
 Template.calendrierResultats.onCreated(function () {
     var self = this;
@@ -36,21 +38,16 @@ Template.calendrierResultats.helpers({
 });
 
 Template.calendrierResultats.events({
-    'click #btnMatch': function () {
+    'click .modal-trigger-ajout': function () {
         $('#modalMatch').addClass("visible");
         $('#modalMatch').toggle("visible");
     },
-    'submit #btnMatch': function () {
+    'submit .modal-trigger-ajout': function () {
         $('#modalMatch').removeClass("visible");
         $('#modalMatch').toggle("visible");
     },
     'click #annuler': function () {
         $('#modalMatch').removeClass("visible");
         $('#modalMatch').toggle("visible");
-    },
-    'click #modifier': function () {
-        $('#modalModifierMatch').addClass("visible");
-        $('#modalModifierMatch').toggle("visible");
-
     },
 });
