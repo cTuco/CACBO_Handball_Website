@@ -23,37 +23,14 @@
         </div>
         {{/if}}
     </div>
-    <!-- <hr />
-    <h5>Matchs passés</h5>
-    <div class="row">
-        {{#if Template.subscriptionsReady}}
-        {{>tableauMatchResultatActualitePasse}}
-        {{else}}
-       
-        <div class="preloader-wrapper big active">
-            <div class="spinner-layer spinner-red">
-                <div class="circle-clipper left">
-                    <div class="circle"></div>
-                </div>
-                <div class="gap-patch">
-                    <div class="circle"></div>
-                </div>
-                <div class="circle-clipper right">
-                    <div class="circle"></div>
-                </div>
-            </div>
-        </div>
-        {{/if}}
-        </table> 
-    </div> -->
     <h2>Les Événements</h2>
 </template>
 
+<!-- Si passe === true alors on affiche le score, sinon non -->
 <template name="tableauMatchResultatActualite">
     <h6>{{categorie}}</h6>
     <table id="table_id" class="highlight centered">
         {{#each matchs}}
-        {{#if passe}}
         <thead>
             <tr>
                 <th>Date et horaire</th>
@@ -66,51 +43,14 @@
             <tr>
                 <td>{{date}} - {{horaire}}</td>
                 <td>{{equipeDomicile}}</td>
+                {{#if passe}}
                 <td>{{pointsDomicile}} - {{pointsExterieur}}</td>
-                <td>{{equipeExterieure}}</td>
-            </tr>
-        </tbody>
-        {{else}}
-        <thead>
-            <tr>
-                <th>Date et horaire</th>
-                <th>Équipe à domicile </th>
-                <th>Score</th>
-                <th>Équipe extérieure</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>{{date}} - {{horaire}}</td>
-                <td>{{equipeDomicile}}</td>
+                {{else}}
                 <td> - </td>
+                {{/if}}
                 <td>{{equipeExterieure}}</td>
             </tr>
         </tbody>
-        {{/if}}
         {{/each}}
     </table>
 </template>
-
-<!-- <template name="tableauMatchResultatActualitePasse">
-    <table id="table_id" class="highlight centered">
-        {{#each matchsPasse}}
-        <thead>
-            <tr>
-                <th>Date et horaire</th>
-                <th>Équipe à domicile </th>
-                <th>Score</th>
-                <th>Équipe extérieure</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>{{date}} - {{horaire}}</td>
-                <td>{{equipeDomicile}}</td>
-                <td>{{pointsDomicile}} - {{pointsExterieur}}</td>
-                <td>{{equipeExterieure}}</td>
-            </tr>
-        </tbody>
-        {{/each}}
-    </table>
-</template> -->

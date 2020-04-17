@@ -37,8 +37,8 @@
 </template>
 
 <template name="tableauMatchResultatAdmin">
+    {{>modalModifierMatch}}
     <table id="table_id" class="highlight centered">
-        {{>modalModifierMatch}}
         {{#each matchs}}
         <thead>
             <tr>
@@ -79,7 +79,7 @@
             <h4>Nouveau match</h4>
             <div class="nouveau-match-container">
                 {{>quickForm collection="Equipes" id="insertMatchForm" type="insert" class="nouveauMatch" }}
-                <!-- {{>quickForm collection="Equipes" scope="matchs" id="insertMatchForm" type="update-pushArray" doc=this class="nouveauMatch" }} -->
+                <!-- {{>quickForm collection="Equipes" scope="matchs" id=insertMatchId type="update-pushArray" doc=calendrierResultats class="nouveauMatch"}} -->
                 <div class="modal-footer">
                     <a href="" class="modal-close waves-effect waves-green btn-flat" id="annuler">Annuler</a>
                 </div>

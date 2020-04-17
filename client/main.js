@@ -1,4 +1,3 @@
-import { Template } from 'meteor/templating';
 import '../lib/accountsConfig.js';
 
 //FICHIERS HTML

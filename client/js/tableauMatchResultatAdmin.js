@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 
+//dès qu'on appell le template tableauMatchResultatAdmin, on coche les cases à cocher si passe === true
 Template.tableauMatchResultatAdmin.onRendered(function () {
     const param = FlowRouter.getParam('params');
     if (param) {
@@ -17,7 +18,7 @@ Template.tableauMatchResultatAdmin.onRendered(function () {
 });
 
 Template.tableauMatchResultatAdmin.events({
-    //au clic sur les checkbox
+    //au clic sur les checkbox, on modif le champs passe dans la bdd
     'click .filled-in': function () {
         const param = FlowRouter.getParam('params');
         const Equipe = Equipes.findOne({ categorie: param });
@@ -40,12 +41,11 @@ Template.tableauMatchResultatAdmin.events({
         Meteor.call('toggleMatchPasse', Equipe._id, Equipe.matchs);
     },
 
-    //au clic sur bouton modifier
+    //au clic sur bouton modifier, on modifie le match
     'click .modal-trigger-update': function () {
         const param = FlowRouter.getParam('params');
         const Equipe = Equipes.findOne({ categorie: param });
         let idMatch = Equipe.matchs[this.id].id;
-
         $('#modalModifierMatch').addClass("visible idMatch" + JSON.stringify(idMatch));
         $('#modalModifierMatch').toggle("visible idMatch" + JSON.stringify(idMatch));
     },
@@ -54,11 +54,10 @@ Template.tableauMatchResultatAdmin.events({
         $('#modalModifierMatch').removeClass("visible");
     },
 
-    //au clic sur bouton supprimer
+    //au clic sur bouton supprimer, on supprime le match
     'click .modal-trigger-delete': function () {
         const param = FlowRouter.getParam('params');
         const Equipe = Equipes.findOne({ categorie: param });
-
         Equipe.matchs.forEach(element => {
             if (element.id == this.id) {
                 let index = Equipe.matchs.indexOf(element);

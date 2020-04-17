@@ -1,11 +1,9 @@
 <template name='mainLayout'>
   <header>
-    <!-- {{>Template.dynamic template=navbar}} -->
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="collapse navbar-collapse" id="menu">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item"><img src="">
-          </li>
+          <li class="nav-item"><img src="logo.png" /></li>
           <li class="nav-item"><a href="/">Accueil</a></li>
           <li class="nav-item"><a href="club">Le Club</a></li>
           <li class="nav-item"><a href="equipes">Les Équipes</a></li>
@@ -20,9 +18,9 @@
     </nav>
   </header>
   <main>
+    <!-- affiche le bon template selon la route passée -->
     {{>Template.dynamic template=main}}
   </main>
-  <!-- {{>Template.dynamic template=footer}} -->
   <footer class="page-footer">
     <div class="container">
       <div class="row">
@@ -40,7 +38,6 @@
             Gymnase du Faisan <br>
             RUE DES FUTAIES<br>
             33560 CARBON-BLANC<br>
-            Tel : 06.00.00.00.00
           </p>
         </div>
         <div class="col l4 s12">

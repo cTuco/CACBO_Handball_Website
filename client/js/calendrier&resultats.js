@@ -1,6 +1,4 @@
-import { Meteor } from 'meteor/meteor';
 
-// Meteor.subscribe('equipes'); REMPLACÉ PAR :
 Template.calendrierResultats.onCreated(function () {
     var self = this;
     self.autorun(function () {
@@ -9,40 +7,25 @@ Template.calendrierResultats.onCreated(function () {
 });
 
 Template.calendrierResultats.helpers({
+    //récupère l'id de la route pour l'afficher
     params() {
-        //TODO : Récupérer dans la bdd les infos relatives aux équipes
-        const param = FlowRouter.getParam('params');
-        // var titre = '';
-        // if (param === 'SG') {
-        //     titre = 'Séniors Garçons';
-        // }
-        // if (param === 'SF') {
-        //     titre = 'Séniors Filles';
-        // } 
-        // else {
-        //     titre = param;
-        // }
-        // return titre;
-        return param;
-    },
-    idEquipe() {
         const param = FlowRouter.getParam('params');
         return param;
     },
-
-    //afficher tous les matchs de l'équipe
+    //affiche tous les matchs de l'équipe qui a l'id 'param'
     matchsEquipe() {
         const param = FlowRouter.getParam('params');
-        return Equipes.find({ categorie: param })
+        return Equipes.find({ categorie: param });
     },
 });
 
 Template.calendrierResultats.events({
+    //ouverture et fermture des modal
     'click .modal-trigger-ajout': function () {
         $('#modalMatch').addClass("visible");
         $('#modalMatch').toggle("visible");
     },
-    'submit .modal-trigger-ajout': function () {
+    'submit .btn-primary': function () {
         $('#modalMatch').removeClass("visible");
         $('#modalMatch').toggle("visible");
     },
@@ -51,3 +34,11 @@ Template.calendrierResultats.events({
         $('#modalMatch').toggle("visible");
     },
 });
+
+//TODO : pour update-pushArray
+// Template.modalMatch.helpers({
+//     insertMatchId() {
+//         const param = FlowRouter.getParam('params');
+//         return Equipes.findOne({ categorie: param })._id;
+//     },
+// })
