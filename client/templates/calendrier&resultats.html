@@ -42,7 +42,6 @@
         {{#each matchs}}
         <thead>
             <tr>
-                <!-- <th>Semaine</th> -->
                 <th>Date et horaire</th>
                 <th>Équipe à domicile</th>
                 <th>Score</th>
@@ -54,7 +53,6 @@
         </thead>
         <tbody>
             <tr>
-                <!-- <td>{{dateDebutSemaine}} - {{dateFinSemaine}}</td> -->
                 <td>{{date}} - {{horaire}}</td>
                 <td>{{equipeDomicile}}</td>
                 <td>{{pointsDomicile}} - {{pointsExterieur}}</td>
@@ -79,7 +77,6 @@
             <h4>Nouveau match</h4>
             <div class="nouveau-match-container">
                 {{>quickForm collection="Equipes" id="insertMatchForm" type="insert" class="nouveauMatch" }}
-                <!-- {{>quickForm collection="Equipes" scope="matchs" id=insertMatchId type="update-pushArray" doc=calendrierResultats class="nouveauMatch"}} -->
                 <div class="modal-footer">
                     <a href="" class="modal-close waves-effect waves-green btn-flat" id="annuler">Annuler</a>
                 </div>
