@@ -33,11 +33,3 @@ Template.calendrierResultats.events({
         $('#modalMatch').toggle("visible");
     },
 });
-
-//TODO : pour update-pushArray
-// Template.modalMatch.helpers({
-//     insertMatchId() {
-//         const param = FlowRouter.getParam('params');
-//         return Equipes.findOne({ categorie: param })._id;
-//     },
-// })
