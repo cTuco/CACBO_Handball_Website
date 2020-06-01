@@ -29,6 +29,11 @@ h5{
 h6{
   font-weight: bold;
 }
+.titrePartenaire{
+  color: black;
+  text-align: center;
+  font-size: 20px;
+}
 
 img{
   width:35px;
@@ -37,8 +42,42 @@ img{
   margin-left: 10px;
   margin-right: 10px;
 }
+.partenaireCadre{
+  width:350px;
+  height:250px;
+  margin-left: auto;
+  margin-right: auto;
+  border-color: grey;
+  border-width: 0.5px;
+  border-style: solid;  
+  /* display: block;   */
+  position: relative;
+  border-radius: 5px;
+}
+.imageIntersport{
+  width:300px;
+  position: relative;
+  display: block;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.imageIntersport:hover{
+  opacity: 0.3;
+}
+.imageBailaPizza{
+  width:200px;
+  position: relative;
+  display: block;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.imageBailaPizza:hover{
+  opacity: 0.3;
+}
 
-.lien{
+.lienFooter{
   text-decoration: underline;
   color: white;
 }
