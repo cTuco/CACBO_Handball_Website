@@ -16,6 +16,7 @@ import './js/administration.js';
 import './js/actualite.js';
 import './js/tableauMatchResultatAdmin.js';
 import './js/calendrier&resultats.js';
+import './js/partenaires.js';
 
 //routes
 import '../lib/router.js';

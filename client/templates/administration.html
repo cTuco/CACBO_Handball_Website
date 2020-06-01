@@ -1,22 +1,79 @@
 <template name='administration'>
-    <h1>Administration</h1>
-    <h2>Le Club - Membres & Encadrants</h2>
-    <h2>Les Licences - Tarifs & Documents</h2>
-    <h2>Les Équipes - Horaires & Salles</h2>
-    <h2>Actualité - Calendrier & Résultats</h2>
-    <div class="row">
-        <a class="btn red" id="SG">Séniors G</a>
-        <a class="btn red" id="SF">Séniors F</a>
-        <a class="btn red" id="-18G">-18G</a>
-        <a class="btn red" id="-18F">-18F</a>
-        <a class="btn red" id="-18F">-15G</a>
-        <a class="btn red" id="-15G">-15G</a>
-        <a class="btn red" id="-13G">-13G</a>
-        <a class="btn red" id="-13F">-13F</a>
-        <a class="btn red" id="-11">-11 mixte</a>
-        <a class="btn red" id="-9">-9 mixte</a>
-        <a class="btn red" id="Loisirs">Loisirs</a>
+    <div class="container">
+        <div class="row">
+            <h1>Administration</h1>
+        </div>
+        <div class="row">
+            <h2>Le Club - Membres & Encadrants</h2>
+        </div>
+        <div class="row">
+            <h2>Les Licences - Tarifs & Documents</h2>
+        </div>
+        <div class="row">
+            <h2>Les Équipes - Horaires & Salles</h2>
+        </div>
+        <div class="row">
+            <h2>Actualité - Calendrier & Résultats</h2>
+            <div class="row btnEquipe">
+                <div class="col l2 m6 s12">
+                    <a class="btn red" id="SG">Séniors G</a>
+                </div>
+                <div class="col l2 m6 s12">
+                    <a class="btn red" id="SF">Séniors F</a>
+                </div>
+                <div class="col l2 m6 s12">
+                    <a class="btn red" id="-18G">-18G</a>
+                </div>
+                <div class="col l2 m6 s12">
+                    <a class="btn red" id="-18F">-18F</a>
+                </div>
+                <div class="col l2 m6 s12">
+                    <a class="btn red" id="-18F">-15G</a>
+                </div>
+                <div class="col l2 m6 s12">
+                    <a class="btn red" id="-15G">-15G</a>
+                </div>
+                <div class="col l2 m6 s12">
+                    <a class="btn red" id="-13G">-13G</a>
+                </div>
+                <div class="col l2 m6 s12">
+                    <a class="btn red" id="-13F">-13F</a>
+                </div>
+                <div class="col l2 m6 s12">
+                    <a class="btn red" id="-11">-11 mixte</a>
+                </div>
+                <div class="col l2 m6 s12">
+                    <a class="btn red" id="-9">-9 mixte</a>
+                </div>
+                <div class="col l2 m6 s12">
+                    <a class="btn red" id="Loisirs">Loisirs</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h2>Actualité - Les Événements</h2>
+        </div>
+        <div class="row">
+            <h2>Les Partenaires</h2>
+            {{>partenairesAdmin}}
+        </div>
     </div>
-    <h2>Actualité - Les Événements</h2>
-    <h2>Les Partenaires</h2>
+</template>
+
+<template name='partenairesAdmin'>
+    <h1>Partenaire</h1>
+    <a class="modal-trigger-ajout btn" id="btnPartenaire">Ajouter un partenaire</a>
+</template>
+<template name='modalPartenaire'>
+    <div id="modalPartenaire" class="modal">
+        <div class="modal-content">
+            <h4>Nouveau partenaire</h4>
+            <div class="nouveau-match-container">
+                {{>quickForm collection="Partenaires" id="insertPatenaireForm" type="insert" class="newPartenaire" }}
+                <div class="modal-footer">
+                    <a href="" class="modal-close waves-effect waves-green btn-flat" id="annuler">Annuler</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
