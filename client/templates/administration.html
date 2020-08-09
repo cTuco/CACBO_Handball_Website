@@ -14,7 +14,7 @@
         </div>
         <div class="row">
             <h2>Actualité - Calendrier & Résultats</h2>
-            <div class="row btnEquipe">
+            <div class="row">
                 <div class="col l2 m6 s12">
                     <a class="btn red" id="SG">Séniors G</a>
                 </div>
@@ -55,23 +55,80 @@
         </div>
         <div class="row">
             <h2>Les Partenaires</h2>
+            {{>modalPartenaire}}
             {{>partenairesAdmin}}
+            {{>modalModifierPartenaire}}
+
         </div>
     </div>
 </template>
 
+<!-- PARTENAIRES -->
+<template name="tableauPartenairesAdmin">
+    <div class="col l6 m12 s12">
+        <div class="partenaireCadre">
+            <!-- récupère le lien en bdd -->
+            <a class="waves-effect waves-light btn" id="supprimerPartenaire">
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+            </a>
+            <a class="waves-effect waves-light btn" id="modifierPartenaire">
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            </a>
+            <a href={{lien}} target="_blank">
+                <img src="partners.jpg" class="imageIntersport" />
+            </a>
+            <p class="titrePartenaire">{{nom}}</p>
+        </div>
+    </div>
+</template>
 <template name='partenairesAdmin'>
-    <h1>Partenaire</h1>
-    <a class="modal-trigger-ajout btn" id="btnPartenaire">Ajouter un partenaire</a>
+    <div class="row">
+        <a class="modal-trigger-ajout btn" id="nouveauPartenaire">Ajouter un partenaire</a>
+    </div>
+    <div class="row">
+        {{#if Template.subscriptionsReady}}
+        {{#each partenaires}}
+        {{>tableauPartenairesAdmin}}
+        {{/each}}
+        {{else}}
+        <!-- spinner -->
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-red">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+        {{/if}}
+    </div>
 </template>
 <template name='modalPartenaire'>
     <div id="modalPartenaire" class="modal">
         <div class="modal-content">
             <h4>Nouveau partenaire</h4>
-            <div class="nouveau-match-container">
-                {{>quickForm collection="Partenaires" id="insertPatenaireForm" type="insert" class="newPartenaire" }}
+            <div class="nouveau-partenaire-container">
+                {{>quickForm collection="Partenaires" id="insertPartenaireForm" type="insert" class="nouveauPartenaire" }}
                 <div class="modal-footer">
-                    <a href="" class="modal-close waves-effect waves-green btn-flat" id="annuler">Annuler</a>
+                    <a href="" class="modal-close waves-effect waves-green btn-flat" id="annulerPartenaire">Annuler</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+<template name='modalModifierPartenaire'>
+    <div id="modalModifierPartenaire" class="modal">
+        <div class="modal-content">
+            <h4>Modifier le partenaire</h4>
+            <div class="modifier-partenaire-container">
+                {{>quickForm collection="Partenaires" id="updatetPartenaireId" type="update" doc=this}}
+                <div class="modal-footer">
+                    <a href="" class="modal-close waves-effect waves-green btn-flat" id="annulerModifier">Annuler</a>
                 </div>
             </div>
         </div>

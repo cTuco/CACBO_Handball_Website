@@ -44,9 +44,10 @@ img{
 }
 .partenaireCadre{
   width:350px;
-  height:250px;
+  height:300px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: auto;
   border-color: grey;
   border-width: 0.5px;
   border-style: solid;  
@@ -89,6 +90,13 @@ img{
 .btn:hover{
   background-color: lightgray;
 }
+.waves-effect{
+  background-color: rgb(43, 41, 41);
+  align-items: right;
+}
+.btn:hover{
+  background-color: grey;
+}
 
 .btnAccueil{
   margin: auto;
@@ -101,4 +109,10 @@ img{
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 15px;
+}
+
+/* positionnement des modals par rapport à la page (premier plan) */
+#modalPartenaire{
+  position: absolute;
+  z-index: 4;
 }

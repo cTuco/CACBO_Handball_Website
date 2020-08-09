@@ -6,22 +6,38 @@
             </div>
         </div>
         <div class="row">
-            <div class="col l6 m12 s12">
-                <div class="partenaireCadre">
-                    <a href="https://www.intersport.fr/" target="_blank">
-                        <img src="intersport1.png" class="imageIntersport" />
-                    </a>
+            {{#if Template.subscriptionsReady}}
+            {{#each partenaires}}
+            {{>tableauPartenaires}}
+            {{/each}}
+            {{else}}
+            <!-- spinner -->
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
                 </div>
-                <p class="titrePartenaire">Intersport</p>
             </div>
-            <div class="col l6 m12 s12">
-                <div class="partenaireCadre">
-                    <a href="https://www.intersport.fr/" target="_blank">
-                        <img src="bailaPizza.jpg" class="imageBailaPizza" />
-                    </a>
-                </div>
-                <p class="titrePartenaire">Baila Pizza</p>
-            </div>
+            {{/if}}
         </div>
+    </div>
+</template>
+
+<template name="tableauPartenaires">
+    <div class="col l6 m12 s12">
+        <div class="partenaireCadre">
+            <!-- récupère le lien en bdd -->
+            <a href={{lien}} target="_blank">
+                <img src="partners.jpg" class="imageIntersport" />
+            </a>
+        </div>
+        <p class="titrePartenaire">{{nom}}</p>
     </div>
 </template>
