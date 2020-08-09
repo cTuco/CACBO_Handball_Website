@@ -2,9 +2,9 @@
 Template.administration.events({
     'click .btn': function () {
         const idElement = event.target.id;
+
         //si l'id est une équipe
-        console.log(idElement)
-        if (idElement !== "nouveauPartenaire" && idElement !== "modifierPartenaire" && idElement !== "supprimerPartenaire") {
+        if (idElement === Equipes.findOne({ categorie: idElement }).categorie) {
             FlowRouter.go('administrationParams', { 'params': idElement });
         } else {
             console.log('partenaire gro')
